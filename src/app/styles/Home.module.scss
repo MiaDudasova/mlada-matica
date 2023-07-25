@@ -1,0 +1,125 @@
+.wrapper {
+  width: 100%;
+  font-family: "Georgia", "Cambria", "Times New Roman", Times, serif;
+  min-height: 80vh;
+  background-color: aliceblue;
+  margin-top: 12vh;
+  color: #2c3790;
+
+  .backgroundImg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .kontent {
+      width: fit-content;
+      height: fit-content;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .nazov {
+        font-size: 7vw;
+        margin: 0;
+        color: white;
+        font-weight: bold;
+      }
+
+      .button {
+        width: fit-content;
+        height: fit-content;
+        padding: 10px 20px;
+        border-radius: 15px;
+        background-color: rgba(237, 28, 36, 1);
+        color: white;
+        border: white;
+      }
+    }
+  }
+
+  .posledneAkcie {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+
+    .preklik {
+      text-align: left;
+      justify-content: left;
+      font-weight: bold;
+      text-decoration: none;
+      color: #2c3790;
+      margin-left: 5%;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2vh;
+
+      .prispevok {
+        width: 80%;
+        height: 30vh;
+        margin: 0px auto;
+        display: flex;
+
+        .akcia {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          .nazov {
+            font-size: 3vh;
+            text-align: left;
+            font-weight: bold;
+          }
+
+          .datum {
+            text-align: left;
+          }
+
+          .popis {
+            text-align: left;
+            display: flex;
+            margin-bottom: 1vh;
+
+            .viacMenej {
+                background-color: aliceblue;
+                border: aliceblue;
+                color: #2c3790;
+                font-family: "Georgia", "Cambria", "Times New Roman", Times, serif;
+            }
+          }
+
+          .obrazky {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: left;
+
+            .obrazok {
+              height: 100%;
+              width: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+.wrapper {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f8f9;
+  color: #ed1c24;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+
+  .nazov,
+  li {
+    font-family: "Georgia", "Cambria", "Times New Roman", Times, serif;
+    font-size: 1.35vw;
+    letter-spacing: 1px;
+    word-spacing: -1px;
+    font-weight: 500;
+    font-variant: small-caps;
+    margin-top: 11px;
+  }
+
+  .left {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 2vw;
+
+    .logoWrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .domov {
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #2c3790;
+        .logo {
+          height: 105%;
+          width: auto;
+          margin: 0px 10px;
+        }
+      }
+    }
+  }
+
+  .navbar {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    .navbarItems {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      list-style: none;
+      
+      .navbarItem {
+        color: #2c3790;
+        text-decoration: none;
+        list-style: none;
+        margin-left: 2vw;
+
+        .navbarItemLink {
+          text-decoration: none;
+          color: #2c3790;
+        }
+
+        .button {
+            width: fit-content;
+            height: fit-content;
+            background-color: #ed1c24;
+            padding: 5px 15px;
+            border-radius: 15px;
+            color: #f7f8f9;
+        }
+      }
+    }
+
+    .menuIcon {
+      height: 35%;
+      aspect-ratio: 1/1;
+      margin-top: 5px;
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    .ortopedickaAmbulancia,
+    li {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 793px) {
+  .wrapper {
+    .ortopedickaAmbulancia,
+    li {
+      font-size: 15px;
+    }
+    .left {
+      width: 100%;
+
+      .domov {
+        .logoWrapper {
+          .logo {
+            height: 50%;
+          }
+        }
+      }
+    }
+    .navbar {
+      width: fit-content;
+      .navbarItems {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: fit-content;
+        height: fit-content;
+        background-color: #f7f8f9;
+        color: #2c3790;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 35px 35px;
+        transition: all 0.55s ease;
+
+        .navbarItem {
+          margin-left: 0px;
+        }
+      }
+      .navbarItems.open {
+        right: 0;
+      }
+      .menuIcon {
+        display: block;
+        margin-right: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+}
