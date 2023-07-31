@@ -9,7 +9,9 @@ const Footer = () => {
           alt="Skautská ľália"
           className={styles.lalia}
         />
-        Mia Dudášová - {new Date().getFullYear()}
+        <a href="mailto: mia.istokova.806@gmail.com">
+          Mia Dudášová - {new Date().getFullYear()}
+        </a>
       </div>
     </div>
   );

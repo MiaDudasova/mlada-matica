@@ -1,6 +1,6 @@
 import styles from "./styles/Prispevok.module.scss";
 
-const Prispevok = ({prispevok}: any) => {
+const Prispevok = ({ prispevok }: any) => {
   const getDirectImageUrl = (url: any) => {
     const fileId = url.match(/\/file\/d\/(.+?)\//)[1];
     return `https://drive.google.com/uc?export=view&id=${fileId}`;
@@ -8,29 +8,48 @@ const Prispevok = ({prispevok}: any) => {
 
   const pocetObrazkov = prispevok.obrazky.length - 3;
 
+  const getURLFriendlyName = (name: string) => {
+    return name.toLowerCase().replace(/\s+/g, "-");
+  };
+
   return (
-    <div key={prispevok.id} className={styles.prispevok}>
-      <h2 className={styles.nazov}>{prispevok.nazov}</h2>
+    <a
+      href={"/fotogaleria/" + getURLFriendlyName(prispevok.nazov)}
+      key={prispevok.id}
+      className={styles.prispevok}
+    >
       <div className={styles.obrazky}>
-        {prispevok.obrazky.slice(0, 3).map((obrazok: any, index: number) => (
+        <div className={styles.horne}>
           <img
-            key={index}
-            src={getDirectImageUrl(obrazok)}
-            alt="hory"
-            className={styles.obrazok}
+            src={getDirectImageUrl(prispevok.obrazky[0])}
+            alt="Fotka"
+            className={styles.lu}
           />
-        ))}
-        <div className={styles.viacObrazkov}>
           <img
-            src={getDirectImageUrl(prispevok.obrazky[3])}
-            alt="hory"
-            className={styles.obrazok}
+            src={getDirectImageUrl(prispevok.obrazky[1])}
+            alt="Fotka"
+            className={styles.ru}
           />
-          <div className={styles.filter}></div>
-          <p className={styles.pocet}>+ {pocetObrazkov}</p>
         </div>
+        <div className={styles.dolne}>
+          <img
+            src={getDirectImageUrl(prispevok.obrazky[2])}
+            alt="Fotka"
+            className={styles.ld}
+          />
+          <div className={styles.viacObrazkov}>
+            <img
+              src={getDirectImageUrl(prispevok.obrazky[3])}
+              alt="Fotka"
+              className={styles.obrazok}
+            />
+            <div className={styles.filter}></div>
+            <p className={styles.pocet}>+ {pocetObrazkov}</p>
+          </div>
+        </div>
+        <h2 className={styles.nazov}>{prispevok.nazov}</h2>
       </div>
-    </div>
+    </a>
   );
 };
 

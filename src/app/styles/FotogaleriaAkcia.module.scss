@@ -1,0 +1,38 @@
+.wrapper {
+    width: 100%;
+    height: 80.5vh;
+    background-color: var(--bg);
+    margin-top: 12vh;
+
+    .post {
+        width: calc(100% - 4vw);
+        height: calc(100% - 2vw);
+        padding: 1vw 2vw;
+
+        .textWrapper {
+            width: 100%;
+            height: 50%;
+        }
+
+        .imageWrapper {
+            width: 100%;
+            height: 50%;
+            display: flex;
+
+            .mainImage {
+                width: 50%;
+                height: 100%;
+            }
+
+            .obrazky {
+                width: 50%;
+                height: 100%;
+
+                .obrazok {
+                    width: 50%;
+                    height: 50%;
+                }
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   background-color: #f7f8f9;
-  color: #ed1c24;
+  color: var(--red);
   z-index: 9999;
   position: fixed;
   top: 0;
@@ -41,7 +41,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        color: #2c3790;
+        color: var(--blue);
         .logo {
           height: 105%;
           width: auto;
@@ -67,20 +67,20 @@
       list-style: none;
       
       .navbarItem {
-        color: #2c3790;
+        color: var(--blue);
         text-decoration: none;
         list-style: none;
         margin-left: 2vw;
 
         .navbarItemLink {
           text-decoration: none;
-          color: #2c3790;
+          color: var(--blue);
         }
 
         .button {
             width: fit-content;
             height: fit-content;
-            background-color: #ed1c24;
+            background-color: var(--red);
             padding: 5px 15px;
             border-radius: 15px;
             color: #f7f8f9;
@@ -132,7 +132,7 @@
         width: fit-content;
         height: fit-content;
         background-color: #f7f8f9;
-        color: #2c3790;
+        color: var(--blue);
         display: flex;
         align-items: center;
         justify-content: center;

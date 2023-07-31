@@ -1,0 +1,62 @@
+.carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+
+  .prispevok {
+    width: 80%;
+    height: 30vh;
+    margin: 0px auto;
+    display: flex;
+    text-decoration: none;
+    color: var(--blue);
+    justify-content: center;
+
+    .akcia {
+      width: fit-content;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .nazov {
+        font-size: 3vh;
+        text-align: left;
+        font-weight: bold;
+        width: fit-content;
+      }
+
+      .datum {
+        text-align: left;
+        width: fit-content;
+      }
+
+      .popis {
+        text-align: left;
+        display: flex;
+        margin-bottom: 1vh;
+
+        .viacMenej {
+          background-color: var(--bg);
+          border: var(--bg);
+          color: var(--blue);
+          font-family: "Georgia", "Cambria", "Times New Roman", Times, serif;
+        }
+      }
+
+      .obrazky {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: left;
+
+        .obrazok {
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
+}

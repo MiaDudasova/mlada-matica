@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   background-color: #f7f8f9;
+  z-index: 9999;
 
   .kontent {
     width: fit-content;
@@ -14,7 +15,7 @@
     justify-content: center;
     align-items: center;
     font-family: "Georgia", "Cambria", "Times New Roman", Times, serif;
-    color: #2c3790;
+    color: var(--blue);
 
     .lalia {
       height: 100%;

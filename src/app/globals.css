@@ -1,3 +1,15 @@
 html, body {
   margin: 0px;
 }
+
+a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+:root {
+  --layoutBG: #f7f8f9;
+  --blue: #2c3790;
+  --bg: #FFFDFD;
+  --red: #ED1C24;
+}

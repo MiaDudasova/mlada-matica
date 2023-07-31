@@ -2,9 +2,9 @@
   width: 100%;
   font-family: "Georgia", "Cambria", "Times New Roman", Times, serif;
   min-height: 80vh;
-  background-color: aliceblue;
+  background-color: var(--bg);
   margin-top: 12vh;
-  color: #2c3790;
+  color: var(--blue);
 
   .backgroundImg {
     position: relative;
@@ -18,6 +18,7 @@
     img {
       width: 100%;
       height: auto;
+      max-height: 88vh;
     }
 
     .kontent {
@@ -60,66 +61,8 @@
       justify-content: left;
       font-weight: bold;
       text-decoration: none;
-      color: #2c3790;
+      color: var(--blue);
       margin-left: 5%;
-    }
-
-    .carousel {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2vh;
-
-      .prispevok {
-        width: 80%;
-        height: 30vh;
-        margin: 0px auto;
-        display: flex;
-
-        .akcia {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-
-          .nazov {
-            font-size: 3vh;
-            text-align: left;
-            font-weight: bold;
-          }
-
-          .datum {
-            text-align: left;
-          }
-
-          .popis {
-            text-align: left;
-            display: flex;
-            margin-bottom: 1vh;
-
-            .viacMenej {
-                background-color: aliceblue;
-                border: aliceblue;
-                color: #2c3790;
-                font-family: "Georgia", "Cambria", "Times New Roman", Times, serif;
-            }
-          }
-
-          .obrazky {
-            width: 100%;
-            height: 50%;
-            display: flex;
-            justify-content: left;
-
-            .obrazok {
-              height: 100%;
-              width: auto;
-            }
-          }
-        }
-      }
     }
   }
 }
