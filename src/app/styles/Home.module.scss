@@ -37,32 +37,38 @@
         font-weight: bold;
       }
 
-      .button {
-        width: fit-content;
-        height: fit-content;
-        padding: 10px 20px;
-        border-radius: 15px;
-        background-color: rgba(237, 28, 36, 1);
-        color: white;
-        border: white;
+      .buttons {
+        width: 55%;
+        display: flex;
+        justify-content: space-between;
+        .button {
+          width: fit-content;
+          height: fit-content;
+          padding: 10px 20px;
+          border-radius: 15px;
+          background-color: var(--red);
+          color: white;
+          border: 2px solid var(--red);
+          font-weight: bold;
+          font-size: 2vh;
+        }
+
+        .reversedButton {
+          width: fit-content;
+          height: fit-content;
+          padding: 10px 20px;
+          border-radius: 15px;
+          background-color: transparent;
+          color: var(--red);
+          border: 2px solid white;
+          font-weight: bold;
+          font-size: 2vh;
+          text-shadow: -1px -1px 0 white,
+            /* Top-left shadow */ 1px -1px 0 white,
+            /* Top-right shadow */ -1px 1px 0 white,
+            /* Bottom-left shadow */ 1px 1px 0 white; /* Bottom-right shadow */
+        }
       }
-    }
-  }
-
-  .posledneAkcie {
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    margin-top: 5vh;
-
-    .preklik {
-      text-align: left;
-      justify-content: left;
-      font-weight: bold;
-      text-decoration: none;
-      color: var(--blue);
-      margin-left: 5%;
     }
   }
 }

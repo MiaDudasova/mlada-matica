@@ -27,7 +27,7 @@ const Header = () => {
           <div className={styles.logoWrapper}>
             <Link href="/" className={styles.domov}>
               <img
-                src="./logoM.png"
+                src="/logoM.png"
                 alt="Logo Mladá Matica"
                 className={styles.logo}
               />

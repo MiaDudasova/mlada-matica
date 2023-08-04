@@ -33,30 +33,19 @@ const Akcia = ({ params }: { params: { nazov: string } }) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.post}>
+      <div className={styles.akcia}>
         <div className={styles.textWrapper}>
-          {post.nazov}
-          <div className={styles.datum}>
-            {post.datumZaciatok} - {post.datumKoniec}
-          </div>
-          {post.popis}
+          <span className={styles.nazov}>{post.nazov}</span>
+          <span className={styles.popis}>{post.popis}</span>
         </div>
         <div className={styles.imageWrapper}>
-          <img
-            src={getDirectImageUrl(post.obrazok)}
-            alt="Hlavná fotka"
-            className={styles.mainImage}
-          />
-          <div className={styles.obrazky}>
-            {post.obrazky.map((obrazok: any) => (
-              <img
-                src={getDirectImageUrl(obrazok)}
-                alt="Fotka"
-                key={generateUniqueIdFromImageUrl(obrazok)}
-                className={styles.obrazok}
-              />
-            ))}
-          </div>
+          {post.obrazky.map((obrazok: any) => (
+            <img
+              key={generateUniqueIdFromImageUrl(obrazok)}
+              src={getDirectImageUrl(obrazok)}
+              alt="Fotka"
+            />
+          ))}
         </div>
       </div>
     </div>

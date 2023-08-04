@@ -1,5 +1,7 @@
-html, body {
+html,
+body {
   margin: 0px;
+  font-family: "Georgia", "Cambria", "Times New Roman", Times, serif;
 }
 
 a {
@@ -7,9 +9,18 @@ a {
   color: var(--blue);
 }
 
+.button {
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--red);
+  padding: 5px 15px;
+  border-radius: 15px;
+  color: #f7f8f9;
+}
+
 :root {
   --layoutBG: #f7f8f9;
   --blue: #2c3790;
-  --bg: #FFFDFD;
-  --red: #ED1C24;
+  --bg: #fffdfd;
+  --red: #ed1c24;
 }
