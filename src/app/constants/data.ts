@@ -73,7 +73,7 @@ export const galeria: Prispevok[] = [
     popis:
       "Aenean sodales orci in lacus dapibus, malesuada ultrices lorem elementum. Pellentesque at elit sed orci commodo tincidunt ornare finibus ligula. Maecenas semper, metus vel sagittis tempor, leo orci vulputate mauris, vel bibendum est erat in nibh. In hendrerit lorem at ante ultricies aliquam. Phasellus vitae lorem massa. Sed quis quam eget massa ullamcorper egestas. Nulla et consequat nisl, ac interdum ligula.",
     datumZaciatok: "20.7.2023",
-    datumKoniec: ".",
+    datumKoniec: "20.7.2023",
     obrazky: [
       "https://drive.google.com/file/d/1Rw6Vr_jflKtf5PPIjFhl3tdz52tOMbkF/view?usp=sharing",
       "https://drive.google.com/file/d/1W-AIJ_aCI3P4xJ4gFGQBOC2JqJibwn2X/view?usp=sharing",
@@ -92,7 +92,7 @@ export const galeria: Prispevok[] = [
     popis:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sapien et elit euismod consequat. Curabitur suscipit erat pulvinar nulla egestas tincidunt. Integer massa arcu, scelerisque quis accumsan eu, ultrices vel libero. Duis dui dolor, porta in dui id, congue aliquet nisi. Praesent at massa sit amet arcu pretium bibendum vitae rutrum leo. Aliquam arcu leo, maximus a tincidunt a, congue vel tortor. In vehicula in urna sit amet tempor. Nullam auctor sagittis facilisis.",
     datumZaciatok: "13.7.2023",
-    datumKoniec: ".",
+    datumKoniec: "13.7.2023",
     obrazky: [
       "https://drive.google.com/file/d/1Rw6Vr_jflKtf5PPIjFhl3tdz52tOMbkF/view?usp=sharing",
       "https://drive.google.com/file/d/1W-AIJ_aCI3P4xJ4gFGQBOC2JqJibwn2X/view?usp=sharing",
@@ -111,7 +111,7 @@ export const galeria: Prispevok[] = [
     popis:
       "Proin sodales sollicitudin commodo. Sed elementum quis dui at posuere. Curabitur feugiat tellus justo, sed eleifend turpis vulputate sit amet. Suspendisse potenti. Suspendisse ut cursus augue. Vestibulum tincidunt sapien a justo scelerisque tincidunt. Aliquam erat volutpat. In ac rutrum risus. Maecenas tincidunt aliquet enim, eget sagittis mauris aliquet at. Vivamus quis arcu eu dui pharetra rutrum a sed nisi.",
     datumZaciatok: "28.6.2023",
-    datumKoniec: ".",
+    datumKoniec: "30.6.2023",
     obrazky: [
       "https://drive.google.com/file/d/1W-AIJ_aCI3P4xJ4gFGQBOC2JqJibwn2X/view?usp=sharing",
       "https://drive.google.com/file/d/1WpX_eo6i5S65pkJWKiwtsJ_IbcxuQTWz/view?usp=sharing",
@@ -130,7 +130,7 @@ export const galeria: Prispevok[] = [
     popis:
       "Aenean arcu libero, tempus nec risus condimentum, suscipit suscipit leo. In egestas, felis sit amet ultrices ultricies, leo nibh pretium purus, id commodo est dui ac ipsum. Morbi elit arcu, eleifend eget consequat elementum, congue sed felis. Praesent laoreet est nec purus pretium, et dignissim tellus vulputate. Donec varius egestas libero, eget viverra lorem semper ut. Vivamus ultricies, purus sed efficitur tincidunt, urna sapien interdum nulla, ",
     datumZaciatok: "1.6.2022",
-    datumKoniec: ".",
+    datumKoniec: "2.6.2023",
     obrazky: [
       "https://drive.google.com/file/d/1aprpspuJF8FQIRAzJGKs-f9hm0CL08Wj/view?usp=sharing",
       "https://drive.google.com/file/d/1W-AIJ_aCI3P4xJ4gFGQBOC2JqJibwn2X/view?usp=sharing",

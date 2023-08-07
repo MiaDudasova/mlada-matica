@@ -18,6 +18,22 @@ a {
   color: #f7f8f9;
 }
 
+.carousel .thumbs {
+  margin: 0px;
+}
+
+.carousel .thumbs-wrapper {
+  margin: 10px !important;
+}
+
+.carousel .carousel-status {
+  display: none;
+}
+
+.carousel .control-dots {
+  display: none;
+}
+
 :root {
   --layoutBG: #f7f8f9;
   --blue: #2c3790;

@@ -1,14 +1,39 @@
-"use client";
-import { useState, useEffect } from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Fotogaleria.module.scss";
 import { galeria } from "../constants/data";
 import Prispevok from "../components/Prispevok/Prispevok";
 import Loading from "../components/Loading/Loading";
+import Filtre from "../components/Filtre/Filtre";
 
 const Fotogaleria = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [rokFilter, setRokFilter] = useState<string>("");
+  const [trvanieFilter, setTrvanieFilter] = useState<string>("");
+  const [filteredGaleria, setFilteredGaleria] = useState(galeria);
 
-  const [opened, setOpened] = useState(true);
+  function parseDate(dateStr: any) {
+    const [datePart, timePart] = dateStr.split(" ");
+    const [day, month, year] = datePart.split(".");
+    const [hour = "00", minute = "00", second = "00"] = (
+      timePart || "00:00:00"
+    ).split(":");
+    return new Date(
+      `${month}/${day}/${year} ${hour}:${minute}:${second}`
+    ).getTime();
+  }
+
+  function compareDatumZaciatok(a: any, b: any) {
+    const timeA = parseDate(a.datumZaciatok);
+    const timeB = parseDate(b.datumZaciatok);
+
+    return timeA - timeB;
+  }
+
+  const sortedGaleria = galeria.slice().sort(compareDatumZaciatok).reverse();
+  console.log(sortedGaleria);
+
+  sortedGaleria.sort(compareDatumZaciatok).reverse();
 
   useEffect(() => {
     const loadingDelay = setTimeout(() => {
@@ -18,49 +43,38 @@ const Fotogaleria = () => {
     return () => clearTimeout(loadingDelay);
   }, []);
 
-  const [rokOpen, setRokOpen] = useState(false);
+  useEffect(() => {
+    const filteredData = sortedGaleria.filter((prispevok) => {
+      const matchesRokFilter =
+        rokFilter === "" || prispevok.datumZaciatok.includes(rokFilter);
 
-  const rokyBox = () => {
-    setRokOpen(!rokOpen);
-  };
-
-  const [dlzkaAkcieOpen, setDlzkaAkcieOpen] = useState(false);
-
-  const dlzkaAkcieBox = () => {
-    setDlzkaAkcieOpen(!dlzkaAkcieOpen);
-  };
-
-  const extractYear = (dateString: string) => {
-    const parts = dateString.split(" ");
-    if (parts.length >= 1) {
-      const datePart = parts[0];
-      const yearParts = datePart.split(".");
-      if (yearParts.length >= 3) {
-        const year = yearParts[2];
-        if (year.length === 4) {
-          return year;
-        }
+      if (trvanieFilter === "Stretnutie") {
+        return (
+          matchesRokFilter &&
+          prispevok.datumZaciatok.split(" ")[0] ===
+            prispevok.datumKoniec.split(" ")[0] &&
+          prispevok.datumZaciatok.includes(":")
+        );
+      } else if (trvanieFilter === "Jednodňová akcia") {
+        return (
+          matchesRokFilter &&
+          prispevok.datumZaciatok.split(" ")[0] ===
+            prispevok.datumKoniec.split(" ")[0] &&
+          !prispevok.datumZaciatok.includes(":")
+        );
+      } else if (trvanieFilter === "Viacdňová akcia") {
+        return (
+          matchesRokFilter &&
+          prispevok.datumZaciatok.split(" ")[0] !==
+            prispevok.datumKoniec.split(" ")[0]
+        );
+      } else {
+        return matchesRokFilter;
       }
-    }
-    return null; 
-  };
+    });
 
-  const allYears = galeria.reduce((years: string[], prispevok) => {
-    const yearFromZaciatok = extractYear(prispevok.datumZaciatok);
-    const yearFromKoniec = extractYear(prispevok.datumKoniec);
-
-    if (yearFromZaciatok && !years.includes(yearFromZaciatok)) {
-      years.push(yearFromZaciatok);
-    }
-
-    if (yearFromKoniec && !years.includes(yearFromKoniec)) {
-      years.push(yearFromKoniec);
-    }
-
-    return years;
-  }, []);
-
-  allYears.sort((a: string, b: string) => parseInt(b, 10) - parseInt(a, 10));
+    setFilteredGaleria(filteredData);
+  }, [rokFilter, trvanieFilter]);
 
   return (
     <div className={styles.wrapper}>
@@ -68,53 +82,16 @@ const Fotogaleria = () => {
         <Loading />
       ) : (
         <div className={styles.content}>
-          {opened ? (
-            <div className={styles.filterOpened}>
-              <div
-                className={styles.filterButton}
-                onClick={() => setOpened(!opened)}
-              >
-                <img src="./filter.svg" alt="Filtre" />
-                <span style={{ margin: "0 10px 0 5px" }}>|</span> Filtre
-              </div>
-            </div>
-          ) : (
-            <div className={styles.filterOpened}>
-              <div
-                className={styles.filterButton}
-                onClick={() => setOpened(!opened)}
-              >
-                <span style={{ fontWeight: "bold" }}>X</span>{" "}
-                <span style={{ margin: "0 10px 0 5px" }}>|</span> Filtre
-              </div>
-              <div className={styles.filterButton} onClick={rokyBox}>
-                Rok
-              </div>
-              {rokOpen && (
-                <div className={styles.box}>
-                  {allYears.map((rok) => (
-                    <div key={rok} className={styles.item}>
-                      {rok}
-                    </div>
-                  ))}
-                </div>
-              )}
-              <div className={styles.filterButton} onClick={dlzkaAkcieBox}>
-                Dĺžka akcie
-              </div>
-              {dlzkaAkcieOpen && (
-                <div className={styles.box}>
-                  <div className={styles.item}>Stretnutie</div>
-                  <div className={styles.item}>Jednodňová akcia</div>
-                  <div className={styles.item}>Viacdňová akcia</div>
-                </div>
-              )}
-            </div>
-          )}
+          <Filtre
+            rokFilter={rokFilter}
+            trvanieFilter={trvanieFilter}
+            setRokFilter={setRokFilter}
+            setTrvanieFilter={setTrvanieFilter}
+          />
           <div className={styles.prispevky}>
-            {galeria.map((prispevok) => {
-              return <Prispevok key={prispevok.id} prispevok={prispevok} />;
-            })}
+            {filteredGaleria.map((prispevok) => (
+              <Prispevok key={prispevok.id} prispevok={prispevok} />
+            ))}
           </div>
         </div>
       )}

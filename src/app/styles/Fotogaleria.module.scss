@@ -46,6 +46,13 @@
           margin: 0 1vh;
         }
       }
+
+      .filter {
+        margin: 0 1vh;
+        padding: 5px 10px;
+        border-radius: 15px;
+        border: 0.5px solid var(--red);
+      }
     }
 
     .prispevky {

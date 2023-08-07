@@ -1,0 +1,49 @@
+.filtre {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .filterOpened {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    justify-content: left;
+    align-items: center;
+    margin-top: 1vh;
+
+    .filterButton {
+      width: fit-content;
+      height: 3.5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 15px;
+      background-color: var(--bg);
+      border: 1px solid var(--blue);
+      border-radius: 15px;
+      margin: 0 0 0 2.25%;
+
+      img {
+        height: 75%;
+        width: auto;
+      }
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+
+      .item {
+        margin: 0 1vh;
+      }
+    }
+
+    .filter {
+      margin: 0 1vh;
+      padding: 5px 10px;
+      border-radius: 15px;
+      border: 0.5px solid var(--red);
+    }
+  }
+}
