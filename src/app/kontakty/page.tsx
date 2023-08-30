@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect } from "react";
 import styles from "../styles/Kontakty.module.scss";
 
@@ -8,40 +8,67 @@ const Kontakty: React.FC = () => {
     const btn = document.getElementById("myBtn");
     const span = document.querySelector(`.${styles.close}`);
 
+    const closeModal = () => {
+      if (modal) {
+        modal.style.display = "none";
+      }
+    };
+
     if (modal && btn && span) {
       btn.addEventListener("click", () => {
         modal.style.display = "block";
       });
 
-      span.addEventListener("click", () => {
-        modal.style.display = "none";
-      });
+      span.addEventListener("click", closeModal);
 
       window.addEventListener("click", (event) => {
         if (event.target === modal) {
-          modal.style.display = "none";
+          closeModal();
+        }
+      });
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeModal();
         }
       });
     }
+
+    return () => {
+      window.removeEventListener("keydown", closeModal);
+    };
   }, []);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.mapWrapper}>
-        <img src="/mapaOMM.png" alt="Mapa" id="myBtn" className={styles.mapaimg} />
+        <div className={styles.mapa}>
+          <img src="/mapaOMM.png" alt="Mapa" className={styles.mapaimg} />
+          <a
+            href="https://www.google.com/maps/place/Dom+Matice+Slovenskej/@48.1442593,17.1158307,15z/data=!4m6!3m5!1s0x476c89415aeef1f9:0x13540277dcc83410!8m2!3d48.1442593!4d17.1158307!16s%2Fg%2F1hc38wq99?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/pin.svg"
+              alt=""
+              className={styles.icon}
+              style={{ right: "0.5vh", height: "4vh", fontWeight: "bold" }}
+            />
+          </a>
+          <img
+            src="/zoom.svg"
+            alt=""
+            id="myBtn"
+            className={styles.icon}
+            style={{ right: "4.5vh", height: "3.95vh", fontWeight: "bold" }}
+          />
+        </div>
         <div id="myModal" className={styles.modal}>
           <div className={styles.modalContent}>
-            <span className={styles.close}>&times;</span>
-            <img src="/mapaOMM.png" alt="Mapa" className={styles.mapa} />
+            <img src="/mapaOMM.png" alt="Mapa" className={styles.close} />
           </div>
         </div>
-        <a
-          href="https://www.google.com/maps/place/Dom+Matice+Slovenskej/@48.1442593,17.1158307,15z/data=!4m6!3m5!1s0x476c89415aeef1f9:0x13540277dcc83410!8m2!3d48.1442593!4d17.1158307!16s%2Fg%2F1hc38wq99?entry=ttu"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Zobraziť na mape
-        </a>
       </div>
       <div className={styles.textWrapper}>
         <div className={styles.text}>
@@ -59,21 +86,48 @@ const Kontakty: React.FC = () => {
           <span className={styles.label}>IČO:</span> 55551955
           <br />
           <br />
+          <div className={styles.kontakt}>
+            <img src="/phone.svg" alt="telefón" />
+            <span className={styles.label}>Mobil:</span>
+            <a href="tel:+421 915 673 515">+421 915 673 515</a>
+          </div>
+          <div className={styles.kontakt}>
+            <img src="/mail.svg" alt="mail" />
+            <span className={styles.label}>E-mail:</span>
+            <a href="mailto:ommbratislava@gmail.com">ommbratislava@gmail.com</a>
+          </div>
+          <div className={styles.kontakt}>
+            <img src="/instagram.svg" alt="instagram" />
+            <span className={styles.label}>Instagram:</span>
+            <a href="https://www.instagram.com/omm_bratislava/" target="_blank">
+              @omm_bratislava
+            </a>
+          </div>
+          <div className={styles.kontakt}>
+            <img src="/facebook.svg" alt="facebook" />
+            <span className={styles.label}>Facebook:</span>
+            <a
+              href="https://www.facebook.com/people/Odbor-Mladej-Matice-Bratislava/100093738729850/"
+              target="_blank"
+            >
+              Odbor Mladej Matice – Bratislava
+            </a>
+          </div>
           <br />
-          <span className={styles.label}>Mobil:</span> +421 915 673 515
-          <br />
-          <span className={styles.label}>E-mail:</span> ommbratislava@gmail.com
-          <br />
-          <span className={styles.label}>Instagram:</span> @omm_bratislava
-          <br />
-          <span className={styles.label}>Facebook:</span> Odbor Mladej Matice –
-          Bratislava
-          <br />
-          <br />
-          <span className={styles.label}>Web Matice slovenskej:</span> matica.sk
-          <br />
-          <span className={styles.label}>Web Mladej Matice:</span>{" "}
-          mladamatica.sk
+          <div className={styles.kontakt}>
+            <img src="/web.svg" alt="web" />
+            <span className={styles.label}>Matica slovenská:</span>
+            <a href="https://matica.sk/" target="_blank">
+              matica.sk
+            </a>
+          </div>
+          <div className={styles.kontakt}>
+            <img src="/web.svg" alt="web" />
+            <span className={styles.label}>Mladá Matica:</span>{" "}
+            <a href="https://mladamatica.sk/" target="_blank">
+              mladamatica.sk
+            </a>
+          </div>
         </div>
       </div>
     </div>
