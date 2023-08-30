@@ -17,7 +17,8 @@ const Akcie = () => {
   };
 
   const getURLFriendlyName = (name: string) => {
-    return name.toLowerCase().replace(/\s+/g, "-");
+    const normalized = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return normalized.toLowerCase().replace(/\s+/g, "-");
   };
 
   function parseDate(dateStr: any) {
@@ -77,7 +78,7 @@ const Akcie = () => {
                 </div>
               </div>
               <div className={styles.imageWrapper}>
-                <img src={getDirectImageUrl(akcia.obrazok)} alt="Fotka" />
+                <img src={akcia.obrazok} alt="Fotka" />
               </div>
             </div>
           );
@@ -101,7 +102,7 @@ const Akcie = () => {
                 </div>
               </div>
               <div className={styles.imageWrapper}>
-                <img src={getDirectImageUrl(akcia.obrazok)} alt="Fotka" />
+                <img src={akcia.obrazok} alt="Fotka" />
               </div>
             </div>
           );

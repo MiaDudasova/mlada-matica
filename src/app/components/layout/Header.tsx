@@ -8,9 +8,14 @@ const Header = () => {
   useClient();
 
   const [isOpen, setIsOpen] = useState(false);
+  const [organyOpened, setOrganyOpened] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleOrgany = () => {
+    setOrganyOpened(!organyOpened);
   };
 
   return (
@@ -31,7 +36,6 @@ const Header = () => {
                 alt="Logo Mladá Matica"
                 className={styles.logo}
               />
-              <span className={styles.nazov}>Mladá Matica</span>
             </Link>
           </div>
         </div>
@@ -57,6 +61,39 @@ const Header = () => {
               <Link href="/historia" className={styles.navbarItem}>
                 História
               </Link>
+            </li>
+            <li>
+              <Link href="/organyb" className={styles.navbarItem}>
+                Orgány
+              </Link>
+              {/* <div className={styles.navbarItem} onClick={toggleOrgany}>
+                Orgány
+              </div>
+              {organyOpened && (
+                <div className={styles.organy}>
+                  <div
+                    className={`${styles.organyItems} ${
+                      organyOpened ? styles.open : ""
+                    }`}
+                  >
+                    <Link href="/organy/predseda" className={styles.organyItem}>
+                      Predseda
+                    </Link>
+                    <Link href="/organy/vybor" className={styles.organyItem}>
+                      Výbor
+                    </Link>
+                    <Link href="/organy/dozorca" className={styles.organyItem}>
+                      Dozorca
+                    </Link>
+                    <Link
+                      href="/organy/valne-zhromazdenie"
+                      className={styles.organyItem}
+                    >
+                      Valné zhromaždenie
+                    </Link>
+                  </div>
+                </div>
+              )} */}
             </li>
             <li>
               <Link href="/dokumenty" className={styles.navbarItem}>

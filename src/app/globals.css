@@ -20,10 +20,12 @@ a {
 
 .carousel .thumbs {
   margin: 0px;
+  display: flex;
+  align-items: center;
 }
 
 .carousel .thumbs-wrapper {
-  margin: 10px !important;
+  margin: 0px !important;
 }
 
 .carousel .carousel-status {

@@ -50,9 +50,14 @@ const Home = () => {
       <div className={styles.backgroundImg}>
         <img src="/hory.webp" alt="Hory" />
         <div className={styles.kontent}>
-          <h1 className={styles.nazov}>Mladá Matica</h1>
+          <h1 className={styles.nazov}>
+            Odbor Mladej Matice
+            <div className={styles.mesto}>Bratislava - Staré mesto</div>
+          </h1>
           <div className={styles.buttons}>
-            <button className={styles.button}>Staň sa členom</button>
+            <button className={styles.button} style={{ marginRight: "3vw" }}>
+              Staň sa členom
+            </button>
             <button className={styles.reversedButton}>Čítať viac ▼</button>
           </div>
         </div>

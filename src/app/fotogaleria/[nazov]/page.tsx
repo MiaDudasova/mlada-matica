@@ -21,11 +21,15 @@ const Akcia = ({ params }: { params: { nazov: string } }) => {
     }
   };
 
-  const nazov = params.nazov.toLowerCase().replace(/\s+/g, "-");
-  console.log(nazov);
+  const getURLFriendlyName = (name: string) => {
+    const normalized = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return normalized.toLowerCase().replace(/\s+/g, "-");
+  };
+  console.log(getURLFriendlyName(params.nazov));
 
   const post: any = galeria.find(
-    (post) => post.nazov.toLowerCase().replace(/\s+/g, "-") === nazov
+    (post) =>
+      getURLFriendlyName(post.nazov) === getURLFriendlyName(params.nazov)
   );
   console.log(post);
 
@@ -60,53 +64,52 @@ const Akcia = ({ params }: { params: { nazov: string } }) => {
           <div className={styles.imageWrapper}>
             {post.obrazky.map((obrazok: any) => (
               <img
-              onClick={() => setOpen(false)}
+                onClick={() => setOpen(false)}
                 key={generateUniqueIdFromImageUrl(obrazok)}
-                src={getDirectImageUrl(obrazok)}
+                src={obrazok}
                 alt="Fotka"
               />
             ))}
           </div>
         </div>
       ) : (
-        <Carousel
-          className={styles.carousel}
-          infiniteLoop={true}
-          transitionTime={350}
-          showArrows={false}
-          selectedItem={currentIndex}
-          onChange={(index) => setCurrentIndex(index)}
-          emulateTouch={true}
-        >
-          {post.obrazky.map((obrazok: any) => (
-            <div
-              key={generateUniqueIdFromImageUrl(obrazok)}
-              className={styles.imgSliderWrapper}
-            >
-              <div className={styles.ovladaciButtonL}>
-                {currentIndex > 0 && (
-                  <button
-                    onClick={handlePrevious}
-                    className={styles.button}
-                  ></button>
-                )}
+        <div className={styles.carouselWrapper}>
+          <div onClick={() => setOpen(!open)} className={styles.backButton}>⟵</div>
+          <Carousel
+            className={styles.carousel}
+            infiniteLoop={true}
+            transitionTime={350}
+            showArrows={false}
+            selectedItem={currentIndex}
+            onChange={(index) => setCurrentIndex(index)}
+            emulateTouch={true}
+          >
+            {post.obrazky.map((obrazok: any) => (
+              <div
+                key={generateUniqueIdFromImageUrl(obrazok)}
+                className={styles.imgSliderWrapper}
+              >
+                <div className={styles.ovladaciButtonL}>
+                  {currentIndex > 0 && (
+                    <button
+                      onClick={handlePrevious}
+                      className={styles.button}
+                    ></button>
+                  )}
+                </div>
+                <img src={obrazok} alt="Fotka" className={styles.imgSlider} />
+                <div className={styles.ovladaciButtonP}>
+                  {currentIndex < post.obrazky.length - 1 && (
+                    <button
+                      onClick={handleNext}
+                      className={styles.button}
+                    ></button>
+                  )}
+                </div>
               </div>
-              <img
-                src={getDirectImageUrl(obrazok)}
-                alt="Fotka"
-                className={styles.imgSlider}
-              />
-              <div className={styles.ovladaciButtonP}>
-                {currentIndex < post.obrazky.length - 1 && (
-                  <button
-                    onClick={handleNext}
-                    className={styles.button}
-                  ></button>
-                )}
-              </div>
-            </div>
-          ))}
-        </Carousel>
+            ))}
+          </Carousel>
+        </div>
       )}
     </div>
   );

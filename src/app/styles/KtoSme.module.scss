@@ -1,0 +1,170 @@
+.wrapper {
+  width: 100%;
+  height: 80.5vh;
+  background-color: var(--bg);
+  margin-top: 12vh;
+  color: var(--blue);
+  display: flex;
+
+  .imageWrapper {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    img {
+      width: 95%;
+      height: auto;
+      border-radius: 15px;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .textWrapper {
+    width: fit-content;
+    max-width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+      width: 90%;
+      height: fit-content;
+      text-align: justify;
+
+      .nadpis {
+        font-weight: bold;
+        font-size: 2.5vw;
+        margin-bottom: 5px;
+      }
+
+      .popis {
+        font-size: 1.2vw;
+      }
+
+      .buttonWrapper {
+        font-size: 1.45vw;
+        display: flex;
+        align-items: center;
+
+        .button {
+          width: fit-content;
+          height: fit-content;
+          background-color: var(--red);
+          padding: 5px 15px;
+          border-radius: 15px;
+
+          a {
+            color: #f7f8f9;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1065px) {
+  .wrapper {
+    .textWrapper {
+      .text {
+        .nadpis {
+          font-size: 5.6vh;
+        }
+
+        .popis {
+          font-size: 2.5vh;
+        }
+
+        .buttonWrapper {
+          font-size: 2.65vh;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 901px) {
+  .wrapper {
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+
+    .imageWrapper {
+      width: 100%;
+      height: 40%;
+      justify-content: center;
+
+      img {
+        max-height: 45vh;
+        height: auto;
+        width: 60%;
+        padding: 5px 0;
+      }
+    }
+
+    .textWrapper {
+      width: 100%;
+      height: 60%;
+      max-width: 100%;
+
+      .text {
+        width: 90%;
+        padding: 5px 0;
+
+        .nadpis {
+          display: none;
+        }
+
+        .popis {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 541px) {
+  .wrapper {
+    .imageWrapper {
+      width: 100%;
+      height: fit-content;
+      justify-content: center;
+
+      img {
+        height: auto;
+        width: 85%;
+        margin: 10px 0 0 0;
+      }
+    }
+
+    .textWrapper {
+      .text {
+        width: 85%;
+        padding: 10px 0;
+
+        .popis {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .wrapper {
+    .textWrapper {
+      .text {
+        .buttonWrapper {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

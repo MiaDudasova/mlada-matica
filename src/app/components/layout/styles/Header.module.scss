@@ -43,7 +43,7 @@
         align-items: center;
         color: var(--blue);
         .logo {
-          height: 105%;
+          height: 75%;
           width: auto;
           margin: 0px 10px;
         }
@@ -58,6 +58,32 @@
     align-items: center;
     justify-content: right;
 
+    .organy {
+      position: relative;
+      width: fit-content;
+
+      .organyItems {
+        width: fit-content;
+        height: fit-content;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        white-space: nowrap;
+        background-color: #f7f8f9;
+        color: var(--blue);
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 0 0 15px 15px;
+        transition: all 0.55s ease;
+        
+        .organyItem {
+          margin: 5px 0px;
+        }
+      }
+    }
+
     .navbarItems {
       width: 100%;
       height: 100%;
@@ -65,7 +91,7 @@
       align-items: center;
       justify-content: right;
       list-style: none;
-      
+
       .navbarItem {
         color: var(--blue);
         text-decoration: none;
@@ -78,12 +104,12 @@
         }
 
         .button {
-            width: fit-content;
-            height: fit-content;
-            background-color: var(--red);
-            padding: 5px 15px;
-            border-radius: 15px;
-            color: #f7f8f9;
+          width: fit-content;
+          height: fit-content;
+          background-color: var(--red);
+          padding: 5px 15px;
+          border-radius: 15px;
+          color: #f7f8f9;
         }
       }
     }
@@ -106,7 +132,7 @@
   }
 }
 
-@media (max-width: 793px) {
+@media (max-width: 1020px) {
   .wrapper {
     .ortopedickaAmbulancia,
     li {

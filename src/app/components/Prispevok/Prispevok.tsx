@@ -9,7 +9,8 @@ const Prispevok = ({ prispevok }: any) => {
   const pocetObrazkov = prispevok.obrazky.length - 3;
 
   const getURLFriendlyName = (name: string) => {
-    return name.toLowerCase().replace(/\s+/g, "-");
+    const normalized = name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
+    return normalized.toLowerCase().replace(/\s+/g, "-");
   };
 
   return (
@@ -21,25 +22,25 @@ const Prispevok = ({ prispevok }: any) => {
       <div className={styles.obrazky}>
         <div className={styles.horne}>
           <img
-            src={getDirectImageUrl(prispevok.obrazky[0])}
+            src={prispevok.obrazky[0]}
             alt="Fotka"
             className={styles.lu}
           />
           <img
-            src={getDirectImageUrl(prispevok.obrazky[1])}
+            src={prispevok.obrazky[1]}
             alt="Fotka"
             className={styles.ru}
           />
         </div>
         <div className={styles.dolne}>
           <img
-            src={getDirectImageUrl(prispevok.obrazky[2])}
+            src={prispevok.obrazky[2]}
             alt="Fotka"
             className={styles.ld}
           />
           <div className={styles.viacObrazkov}>
             <img
-              src={getDirectImageUrl(prispevok.obrazky[3])}
+              src={prispevok.obrazky[3]}
               alt="Fotka"
               className={styles.obrazok}
             />

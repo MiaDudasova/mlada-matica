@@ -7,10 +7,14 @@ import Loading from "../components/Loading/Loading";
 import Filtre from "../components/Filtre/Filtre";
 
 const Fotogaleria = () => {
+  const fotogaleria = galeria.filter(
+    (prispevok) => prispevok.obrazky.length > 0
+  );
+
   const [isLoading, setIsLoading] = useState(true);
   const [rokFilter, setRokFilter] = useState<string>("");
   const [trvanieFilter, setTrvanieFilter] = useState<string>("");
-  const [filteredGaleria, setFilteredGaleria] = useState(galeria);
+  const [filteredGaleria, setFilteredGaleria] = useState(fotogaleria);
 
   function parseDate(dateStr: any) {
     const [datePart, timePart] = dateStr.split(" ");
@@ -30,7 +34,7 @@ const Fotogaleria = () => {
     return timeA - timeB;
   }
 
-  const sortedGaleria = galeria.slice().sort(compareDatumZaciatok).reverse();
+  const sortedGaleria = fotogaleria.slice().sort(compareDatumZaciatok).reverse();
   console.log(sortedGaleria);
 
   sortedGaleria.sort(compareDatumZaciatok).reverse();

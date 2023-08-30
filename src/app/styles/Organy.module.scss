@@ -1,0 +1,160 @@
+.wrapper {
+  width: 100%;
+  min-height: 80.5vh;
+  background-color: var(--bg);
+  margin-top: 12vh;
+  color: var(--blue);
+  display: flex;
+  justify-content: space-evenly;
+
+  .vybor {
+    width: 24%;
+  }
+
+  .valneZhromazdenie {
+    width: 34%;
+  }
+
+  .dozorca,
+  .predseda {
+    width: 20%;
+  }
+
+  .dozorca,
+  .predseda,
+  .vybor,
+  .valneZhromazdenie {
+    height: fit-content;
+
+    img {
+      max-width: 100%;
+      width: 100%;
+      height: 33vh;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .infoWrapper {
+      .button {
+        margin: 0;
+        background-color: var(--layoutBG);
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 3vh;
+        font-weight: bold;
+        align-items: center;
+      }
+
+      .info {
+        background-color: var(--bg);
+        border: 1px solid var(--layoutBG);
+        padding: 5px;
+        border-radius: 0 0 5px 5px;
+        font-size: 2.35vh;
+      }
+    }
+  }
+}
+
+@media (max-width: 1021px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+
+    .dozorca,
+    .predseda,
+    .vybor,
+    .valneZhromazdenie {
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      margin: 10px auto;
+
+      img {
+        max-width: 25%;
+        width: 25%;
+        height: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 15px;
+        margin: auto 0 auto 1%;
+      }
+
+      .infoWrapper {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1%;
+
+        .button {
+          background-color: var(--bg);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 786px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .dozorca,
+    .predseda,
+    .vybor,
+    .valneZhromazdenie {
+      width: 90%;
+      flex-direction: column;
+      margin: 0 auto;
+
+      img {
+        max-width: 35%;
+        width: 35%;
+        height: 30vh;
+        min-height: 30vh;
+        max-height: 30vh;
+        border-radius: 15px;
+      }
+
+      .infoWrapper {
+        width: 90%;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 590px) {
+  .wrapper {
+    .dozorca,
+    .predseda,
+    .vybor,
+    .valneZhromazdenie {
+      img {
+        max-width: 55%;
+        width: 55%;
+      }
+    }
+  }
+}
+
+@media (max-width: 424px) {
+  .wrapper {
+    .dozorca,
+    .predseda,
+    .vybor,
+    .valneZhromazdenie {
+      img {
+        max-width: 90%;
+        width: 90%;
+      }
+
+      .infoWrapper {
+        text-align: justify;
+      }
+    }
+  }
+}

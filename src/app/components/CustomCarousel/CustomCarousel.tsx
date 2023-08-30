@@ -36,7 +36,7 @@ const CustomCarousel = (props: Props) => {
 
   const [expandedPopisId, setExpandedPopisId] = useState<string | null>(null);
 
-  function truncatePopis(text: any, maxLength: any) {
+  function truncatePopis(text: any, maxLength: any) { 
     if (text.length <= maxLength) return text;
     return text.slice(0, text.lastIndexOf(" ", maxLength)) + "...";
   }
@@ -62,7 +62,8 @@ const CustomCarousel = (props: Props) => {
   };
 
   const getURLFriendlyName = (name: string) => {
-    return name.toLowerCase().replace(/\s+/g, "-");
+    const normalized = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return normalized.toLowerCase().replace(/\s+/g, "-");
   };
 
   return (
@@ -124,7 +125,7 @@ const CustomCarousel = (props: Props) => {
                   <div className={styles.obrazky}>
                     {prispevok.obrazky.slice(0, 4).map((obrazok) => (
                       <img
-                        src={getDirectImageUrl(obrazok)}
+                        src={obrazok}
                         alt="Obrazok"
                         key={generateUniqueIdFromImageUrl(obrazok)}
                         className={styles.obrazok}

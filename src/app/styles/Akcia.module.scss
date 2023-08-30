@@ -37,7 +37,8 @@
 
     .imageWrapper {
       width: 100%;
-      height: 49%;
+      height: fit-content;
+      max-height: 52vh;
       display: flex;
 
       .mainImage {

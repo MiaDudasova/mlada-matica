@@ -3,11 +3,14 @@ import styles from "../../styles/Akcia.module.scss";
 import { Prispevok, galeria } from "@/app/constants/data";
 
 const Akcie = ({ params }: { params: { nazov: string } }) => {
-  const nazov = params.nazov.toLowerCase().replace(/\s+/g, "-");
-  console.log(nazov);
+  const getURLFriendlyName = (name: string) => {
+    const normalized = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return normalized.toLowerCase().replace(/\s+/g, "-");
+  };
+  console.log(getURLFriendlyName(params.nazov));
 
   const post: any = galeria.find(
-    (post) => post.nazov.toLowerCase().replace(/\s+/g, "-") === nazov
+    (post) => getURLFriendlyName(post.nazov) === getURLFriendlyName(params.nazov)
   );
   console.log(post);
 
@@ -43,14 +46,14 @@ const Akcie = ({ params }: { params: { nazov: string } }) => {
         </div>
         <div className={styles.imageWrapper}>
           <img
-            src={getDirectImageUrl(post.obrazok)}
+            src={post.obrazok}
             alt="Hlavná fotka"
             className={styles.mainImage}
           />
           <div className={styles.obrazky}>
             {/* {post.obrazky.map((obrazok: any) => (
               <img
-                src={getDirectImageUrl(obrazok)}
+                src={obrazok}
                 alt="Fotka"
                 key={generateUniqueIdFromImageUrl(obrazok)}
                 className={styles.obrazok}
@@ -58,19 +61,19 @@ const Akcie = ({ params }: { params: { nazov: string } }) => {
             ))} */}
             <div className={styles.horne}>
               <img
-                src={getDirectImageUrl(post.obrazky[0])}
+                src={post.obrazky[0]}
                 alt="Fotka"
                 className={styles.lu}
               />
               <img
-                src={getDirectImageUrl(post.obrazky[1])}
+                src={post.obrazky[1]}
                 alt="Fotka"
                 className={styles.ru}
               />
             </div>
             <div className={styles.dolne}>
               <img
-                src={getDirectImageUrl(post.obrazky[2])}
+                src={post.obrazky[2]}
                 alt="Fotka"
                 className={styles.ld}
               />
@@ -79,7 +82,7 @@ const Akcie = ({ params }: { params: { nazov: string } }) => {
                 className={styles.viacObrazkov}
               >
                 <img
-                  src={getDirectImageUrl(post.obrazky[3])}
+                  src={post.obrazky[3]}
                   alt="Fotka"
                   className={styles.obrazok}
                 />
