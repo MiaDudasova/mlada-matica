@@ -1,0 +1,76 @@
+.wrapper {
+  width: 100%;
+  min-height: 80.5vh;
+  background-color: var(--bg);
+  margin-top: 12vh;
+  color: var(--blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .textWrapper {
+    width: 80%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+      width: fit-content;
+      height: fit-content;
+      font-size: 2.3vh;
+
+      .nadpis {
+        font-weight: bold;
+        font-size: 5vh;
+        margin-bottom: 10px;
+      }
+
+      img {
+        width: auto;
+        height: 2.5vh;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+      }
+
+      .dokumenty {
+        list-style: none;
+        padding-left: 15px;
+
+        li {
+          padding-left: 3vh;
+          background-image: url("/icons/dokument.svg");
+          background-size: 2.65vh;
+          background-repeat: no-repeat;
+          list-style-type: none;
+          font-style: italic;
+        }
+      }
+
+      .vedenie {
+        list-style: none;
+
+        li {
+          margin: 1.5vh 0 1.5vh 0;
+
+          .label {
+            font-weight: bold;
+            margin-right: 1.5vh;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 462px) {
+  .wrapper {
+    .textWrapper {
+      width: 95%;
+    }
+  }
+}

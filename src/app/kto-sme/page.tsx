@@ -4,7 +4,7 @@ const KtoSme = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageWrapper}>
-        <img src="/kto-sme.jpg" alt="Skupinová fotka" />
+        <img src="/images/kto-sme.jpg" alt="Skupinová fotka" />
       </div>
       <div className={styles.textWrapper}>
         <div className={styles.text}>

@@ -28,7 +28,7 @@ const StanSaClenom = () => {
             <li> &nbsp; &nbsp; Vypíš a pošli nám prihlášku za člena OMM.</li>
             <a href="/files/prihlaska-za-clena-OMM.pdf" target="_blank">
               &nbsp; &nbsp;
-              <img src="/dokument.svg" alt="dokument" />
+              <img src="/icons/dokument.svg" alt="dokument" />
               Prihláška za člena OMM
             </a>
             <li>

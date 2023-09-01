@@ -5,7 +5,7 @@ const Footer = () => {
     <div className={styles.wrapper}>
       <div className={styles.kontent}>
         <img
-          src="/skautska-lalia.png"
+          src="/images/skautska-lalia.png"
           alt="Skautská ľália"
           className={styles.lalia}
         />

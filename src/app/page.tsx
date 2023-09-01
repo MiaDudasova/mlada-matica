@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.backgroundImg}>
-        <img src="/hory.webp" alt="Hory" />
+        <img src="/images/hory.webp" alt="Hory" />
         <div className={styles.kontent}>
           <h1 className={styles.nazov}>
             Odbor Mladej Matice

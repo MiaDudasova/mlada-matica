@@ -60,7 +60,7 @@ const Filtre: React.FC<FiltreProps> = ({
             className={styles.filterButton}
             onClick={() => setOpened(!opened)}
           >
-            <img src="./filter.svg" alt="Filtre" />
+            <img src="/icons/filter.svg" alt="Filtre" />
             <span style={{ margin: "0 10px 0 5px" }}>|</span> Filtre
           </div>
         </div>

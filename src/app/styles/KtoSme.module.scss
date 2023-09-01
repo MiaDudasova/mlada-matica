@@ -38,19 +38,16 @@
       width: 90%;
       height: fit-content;
       text-align: justify;
+      font-size: 2.3vh;
 
       .nadpis {
         font-weight: bold;
-        font-size: 2.5vw;
-        margin-bottom: 5px;
-      }
-
-      .popis {
-        font-size: 1.2vw;
+        font-size: 5vh;
+        margin-bottom: 10px;
       }
 
       .buttonWrapper {
-        font-size: 1.45vw;
+        font-size: 2.45vh;
         display: flex;
         align-items: center;
 
