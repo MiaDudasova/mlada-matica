@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styles from "../../styles/FotogaleriaAkcia.module.scss";
 import { galeria } from "@/app/constants/data";
+import Link from "next/link";
 
 const Akcia = ({ params }: { params: { nazov: string } }) => {
   const [open, setOpen] = useState(true);
@@ -62,55 +63,64 @@ const Akcia = ({ params }: { params: { nazov: string } }) => {
             <span className={styles.popis}>{post.popis}</span>
           </div>
           <div className={styles.imageWrapper}>
-            {post.obrazky.map((obrazok: any) => (
-              <img
-                onClick={() => setOpen(false)}
+            {post.obrazky.map((obrazok: any, index: number) => (
+              <Link
+                href={`/fotogaleria/${params.nazov}/${index}`}
                 key={generateUniqueIdFromImageUrl(obrazok)}
-                src={obrazok}
-                alt="Fotka"
-              />
+                className={styles.image}
+              >
+                <img
+                  // onClick={() => setOpen(false)}
+                  src={obrazok}
+                  alt="Fotka"
+                  className={styles.img}
+                />
+              </Link>
             ))}
           </div>
         </div>
       ) : (
-        <div className={styles.carouselWrapper}>
-          <div onClick={() => setOpen(!open)} className={styles.backButton}>⟵</div>
-          <Carousel
-            className={styles.carousel}
-            infiniteLoop={true}
-            transitionTime={350}
-            showArrows={false}
-            selectedItem={currentIndex}
-            onChange={(index) => setCurrentIndex(index)}
-            emulateTouch={true}
-          >
-            {post.obrazky.map((obrazok: any) => (
-              <div
-                key={generateUniqueIdFromImageUrl(obrazok)}
-                className={styles.imgSliderWrapper}
-              >
-                <div className={styles.ovladaciButtonL}>
-                  {currentIndex > 0 && (
-                    <button
-                      onClick={handlePrevious}
-                      className={styles.button}
-                    ></button>
-                  )}
-                </div>
-                <img src={obrazok} alt="Fotka" className={styles.imgSlider} />
-                <div className={styles.ovladaciButtonP}>
-                  {currentIndex < post.obrazky.length - 1 && (
-                    <button
-                      onClick={handleNext}
-                      className={styles.button}
-                    ></button>
-                  )}
-                </div>
-              </div>
-            ))}
-          </Carousel>
-        </div>
+        <div></div>
       )}
+      {/* // ) : (
+      //   <div className={styles.carouselWrapper}>
+      //     <div onClick={() => setOpen(!open)} className={styles.backButton}>⟵</div>
+      //     <Carousel
+      //       className={styles.carousel}
+      //       infiniteLoop={true}
+      //       transitionTime={350}
+      //       showArrows={false}
+      //       selectedItem={currentIndex}
+      //       onChange={(index) => setCurrentIndex(index)}
+      //       emulateTouch={true}
+      //     >
+      //       {post.obrazky.map((obrazok: any) => (
+      //         <div
+      //           key={generateUniqueIdFromImageUrl(obrazok)}
+      //           className={styles.imgSliderWrapper}
+      //         >
+      //           <div className={styles.ovladaciButtonL}>
+      //             {currentIndex > 0 && (
+      //               <button
+      //                 onClick={handlePrevious}
+      //                 className={styles.button}
+      //               ></button>
+      //             )}
+      //           </div>
+      //           <img src={obrazok} alt="Fotka" className={styles.imgSlider} />
+      //           <div className={styles.ovladaciButtonP}>
+      //             {currentIndex < post.obrazky.length - 1 && (
+      //               <button
+      //                 onClick={handleNext}
+      //                 className={styles.button}
+      //               ></button>
+      //             )}
+      //           </div>
+      //         </div>
+      //       ))}
+      //     </Carousel>
+      //   </div>
+      // )} */}
     </div>
   );
 };
