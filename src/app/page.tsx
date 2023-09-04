@@ -48,32 +48,65 @@ const Home = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.backgroundImg}>
-        <img src="/images/hory.webp" alt="Hory" />
         <div className={styles.kontent}>
           <h1 className={styles.nazov}>
             Odbor Mladej Matice
             <div className={styles.mesto}>Bratislava - Staré mesto</div>
           </h1>
           <div className={styles.buttons}>
-            <button className={styles.button} style={{ marginRight: "3vw" }}>
-              Staň sa členom
-            </button>
-            <button className={styles.reversedButton}>Čítať viac ▼</button>
+            <button className={styles.button}>Staň sa členom</button>
+            <a href="#domov" className={styles.button}>
+              Čítať viac ▼
+            </a>
           </div>
         </div>
       </div>
 
-      <CustomCarousel
-        nazov="POSLEDNÉ AKCIE"
-        preklik="fotogaleria"
-        akcieGaleria={pastEvents}
-      />
+      <div className={styles.more} id="domov">
+        <CustomCarousel
+          nazov="POSLEDNÉ AKCIE"
+          preklik="fotogaleria"
+          akcieGaleria={pastEvents}
+        />
 
-      <CustomCarousel
-        nazov="NAJBLIŽŠIE AKCIE"
-        preklik="akcie"
-        akcieGaleria={futureEvents}
-      />
+        <CustomCarousel
+          nazov="NAJBLIŽŠIE AKCIE"
+          preklik="akcie"
+          akcieGaleria={futureEvents}
+        />
+
+        <div className={styles.socials}>
+          <a
+            href="https://www.instagram.com/omm_bratislava/"
+            target="_blank"
+            className={styles.social}
+          >
+            <img
+              src="/icons/instagram.svg"
+              alt="instagram"
+              className={styles.icon}
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/people/Odbor-Mladej-Matice-Bratislava/100093738729850/"
+            target="_blank"
+            className={styles.social}
+          >
+            <img
+              src="/icons/facebook.svg"
+              alt="facebook"
+              className={styles.icon}
+            />
+          </a>
+          <a
+            href="https://matica.sk/"
+            target="_blank"
+            className={styles.social}
+          >
+            <img src="/icons/web.svg" alt="web" className={styles.icon} />
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

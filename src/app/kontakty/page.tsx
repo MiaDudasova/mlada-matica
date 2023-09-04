@@ -72,7 +72,7 @@ const Kontakty: React.FC = () => {
       </div>
       <div className={styles.textWrapper}>
         <div className={styles.text}>
-          <h1 className={styles.nadpis}>Kontakt</h1>
+          <h1 className={styles.nadpis}>Kontakty</h1>
           Odbor Mladej Matice Bratislava – Staré Mesto
           <br />
           Grösslingová 2310/23

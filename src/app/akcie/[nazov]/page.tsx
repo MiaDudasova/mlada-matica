@@ -10,7 +10,8 @@ const Akcie = ({ params }: { params: { nazov: string } }) => {
   console.log(getURLFriendlyName(params.nazov));
 
   const post: any = galeria.find(
-    (post) => getURLFriendlyName(post.nazov) === getURLFriendlyName(params.nazov)
+    (post) =>
+      getURLFriendlyName(post.nazov) === getURLFriendlyName(params.nazov)
   );
   console.log(post);
 
@@ -44,54 +45,44 @@ const Akcie = ({ params }: { params: { nazov: string } }) => {
           </div>
           <span className={styles.popis}>{post.popis}</span>
         </div>
-        <div className={styles.imageWrapper}>
-          <img
-            src={post.obrazok}
-            alt="Hlavná fotka"
-            className={styles.mainImage}
-          />
-          <div className={styles.obrazky}>
-            {/* {post.obrazky.map((obrazok: any) => (
-              <img
-                src={obrazok}
-                alt="Fotka"
-                key={generateUniqueIdFromImageUrl(obrazok)}
-                className={styles.obrazok}
-              />
-            ))} */}
-            <div className={styles.horne}>
-              <img
-                src={post.obrazky[0]}
-                alt="Fotka"
-                className={styles.lu}
-              />
-              <img
-                src={post.obrazky[1]}
-                alt="Fotka"
-                className={styles.ru}
-              />
-            </div>
-            <div className={styles.dolne}>
-              <img
-                src={post.obrazky[2]}
-                alt="Fotka"
-                className={styles.ld}
-              />
-              <a
-                href={"/fotogaleria/" + params.nazov}
-                className={styles.viacObrazkov}
-              >
-                <img
-                  src={post.obrazky[3]}
-                  alt="Fotka"
-                  className={styles.obrazok}
-                />
-                <div className={styles.filter}></div>
-                <p className={styles.pocet}>+ {post.obrazky.length - 3}</p>
-              </a>
+        {post.obrazky.length !== 0 ? (
+          <div className={styles.imageWrapper}>
+            <img
+              src={post.obrazok}
+              alt="Hlavná fotka"
+              className={styles.mainImage}
+            />
+            <div className={styles.obrazky}>
+              <div className={styles.horne}>
+                <img src={post.obrazky[0]} alt="Fotka" className={styles.lu} />
+                <img src={post.obrazky[1]} alt="Fotka" className={styles.ru} />
+              </div>
+              <div className={styles.dolne}>
+                <img src={post.obrazky[2]} alt="Fotka" className={styles.ld} />
+                <a
+                  href={"/fotogaleria/" + params.nazov}
+                  className={styles.viacObrazkov}
+                >
+                  <img
+                    src={post.obrazky[3]}
+                    alt="Fotka"
+                    className={styles.obrazok}
+                  />
+                  <div className={styles.filter}></div>
+                  <p className={styles.pocet}>+ {post.obrazky.length - 3}</p>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className={styles.imageWrapper}>
+            <img
+              src={post.obrazok}
+              alt="Hlavná fotka"
+              className={styles.mainImg}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

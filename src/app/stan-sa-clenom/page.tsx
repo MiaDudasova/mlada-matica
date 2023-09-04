@@ -24,7 +24,7 @@ const StanSaClenom = () => {
             Členský príspevok bol na tento rok stanovený na 5,-€.
           </div>
           <ol type="1">
-            Ako sa stať členom OMM:
+            <span style={{fontWeight: "bold"}}>Ako sa stať členom OMM:</span>
             <li> &nbsp; &nbsp; Vypíš a pošli nám prihlášku za člena OMM.</li>
             <a href="/files/prihlaska-za-clena-OMM.pdf" target="_blank">
               &nbsp; &nbsp;

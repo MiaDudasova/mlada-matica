@@ -36,7 +36,7 @@ const CustomCarousel = (props: Props) => {
 
   const [expandedPopisId, setExpandedPopisId] = useState<string | null>(null);
 
-  function truncatePopis(text: any, maxLength: any) { 
+  function truncatePopis(text: any, maxLength: any) {
     if (text.length <= maxLength) return text;
     return text.slice(0, text.lastIndexOf(" ", maxLength)) + "...";
   }
@@ -68,76 +68,92 @@ const CustomCarousel = (props: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      <a href={"/" + preklik} className={styles.preklik}>
-        {nazov} →
-      </a>
-      <Carousel
-        className={styles.carousel}
-        infiniteLoop
-        useKeyboardArrows
-        autoPlay
-        showThumbs={false}
-        interval={3500}
-        showStatus={false}
-      >
-        {akcieGaleria.slice(0, 2).map((prispevok) => {
-          console.log(preklik);
-          return (
-            <a
-              href={"/" + preklik + "/" + getURLFriendlyName(prispevok.nazov)}
-              key={prispevok.id}
-              className={styles.prispevok}
-            >
-              {posledne3prispevky.some(
-                (item) => item.nazov === prispevok.nazov
-              ) && (
-                <div className={styles.akcia} key={prispevok.nazov}>
-                  <span className={styles.nazov}>{prispevok.nazov}</span>
-                  <span className={styles.datum}>
-                    {prispevok.datumZaciatok} - {prispevok.datumKoniec}
-                  </span>
-                  <span className={styles.popis}>
-                    {expandedPopisId === prispevok.id
-                      ? prispevok.popis
-                      : truncatePopis(prispevok.popis, 100)}
-                    {prispevok.popis.length > 100 && (
-                      <>
-                        {expandedPopisId === prispevok.id ? (
-                          // <button
-                          //   className={styles.viacMenej}
-                          //   onClick={() => setExpandedPopisId(null)}
-                          // >
-                          //   zobraziť menej
-                          // </button>
-                          <div></div>
-                        ) : (
-                          // <button
-                          //   className={styles.viacMenej}
-                          //   onClick={() => setExpandedPopisId(prispevok.id)}
-                          // >
-                          //   zobraziť viac
-                          // </button>
-                          <div></div>
-                        )}
-                      </>
+      <div className={styles.contentWrapper}>
+        <a href={"/" + preklik} className={styles.preklik}>
+          {nazov} →
+        </a>
+        <Carousel
+          className={styles.carousel}
+          infiniteLoop
+          useKeyboardArrows
+          autoPlay
+          showThumbs={false}
+          interval={3500}
+          showStatus={false}
+        >
+          {akcieGaleria.slice(0, 3).map((prispevok) => {
+            console.log(preklik);
+            return (
+              <>
+                {prispevok.obrazky.length !== 0 ? (
+                  <a
+                    href={
+                      "/" + preklik + "/" + getURLFriendlyName(prispevok.nazov)
+                    }
+                    key={prispevok.id}
+                    className={styles.prispevok}
+                  >
+                    {posledne3prispevky.some(
+                      (item) => item.nazov === prispevok.nazov
+                    ) && (
+                      <div className={styles.akcia} key={prispevok.nazov}>
+                        <span className={styles.nazov}>{prispevok.nazov}</span>
+                        <span className={styles.datum}>
+                          {prispevok.datumZaciatok} - {prispevok.datumKoniec}
+                        </span>
+                        <span className={styles.popis}>
+                          {expandedPopisId === prispevok.id
+                            ? prispevok.popis
+                            : truncatePopis(prispevok.popis, 100)}
+                        </span>
+                        <div className={styles.obrazky}>
+                          {prispevok.obrazky.slice(0, 4).map((obrazok) => (
+                            <img
+                              src={obrazok}
+                              alt="Obrazok"
+                              key={generateUniqueIdFromImageUrl(obrazok)}
+                              className={styles.obrazok}
+                            />
+                          ))}
+                        </div>
+                      </div>
                     )}
-                  </span>
-                  <div className={styles.obrazky}>
-                    {prispevok.obrazky.slice(0, 4).map((obrazok) => (
-                      <img
-                        src={obrazok}
-                        alt="Obrazok"
-                        key={generateUniqueIdFromImageUrl(obrazok)}
-                        className={styles.obrazok}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-            </a>
-          );
-        })}
-      </Carousel>
+                  </a>
+                ) : (
+                  <a
+                    href={
+                      "/" + preklik + "/" + getURLFriendlyName(prispevok.nazov)
+                    }
+                    key={prispevok.id}
+                    className={styles.prispevok}
+                  >
+                    {posledne3prispevky.some(
+                      (item) => item.nazov === prispevok.nazov
+                    ) && (
+                      <div className={styles.akciaa} key={prispevok.nazov}>
+                        <div className={styles.imageWrapper}>
+                          <img src={prispevok.obrazok} alt="Fotka" />
+                        </div>
+                        <div className={styles.textWrapper}>
+                          <span className={styles.nazov}>
+                            {prispevok.nazov}
+                          </span>
+                          <span className={styles.datum}>
+                            {prispevok.datumZaciatok} - {prispevok.datumKoniec}
+                          </span>
+                          <span className={styles.popis}>
+                            {prispevok.popis}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </a>
+                )}
+              </>
+            );
+          })}
+        </Carousel>
+      </div>
     </div>
   );
 };
